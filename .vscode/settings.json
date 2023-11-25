@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Clicky Crates Prototype.sln"
+    "dotnet.defaultSolution": "clicky-crates.sln"
 }
