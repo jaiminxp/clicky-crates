@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public TextMeshProUGUI livesText;
     private int lives;
+    public GameObject pauseScreen;
+    private bool paused;
 
     public void StartGame(int difficulty)
     {
@@ -25,6 +27,31 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
         UpdateLives(3);
         titleScreen.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangePaused();
+        }
+    }
+
+    void ChangePaused()
+    {
+        if (!paused)
+        {
+            paused = true;
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            paused = false;
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+
+        }
     }
 
     IEnumerator SpawnTarget()
